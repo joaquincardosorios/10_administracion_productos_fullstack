@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "lib": ["ESNext"],
+      "strict": false,
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "declaration": true,
+      "target": "ES2020",
+      "module": "CommonJS",
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts"]
+  }
+  
