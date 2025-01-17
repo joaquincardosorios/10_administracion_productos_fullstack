@@ -7,8 +7,11 @@
       "sourceMap": true,
       "esModuleInterop": true,
       "declaration": true,
-      "target": "ES2020",
-      "module": "CommonJS",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "target": "ESNext",
+      "module": "NodeNext",
+      "moduleResolution": "nodenext",
       "skipLibCheck": true
     },
     "include": ["src/**/*.ts"]
