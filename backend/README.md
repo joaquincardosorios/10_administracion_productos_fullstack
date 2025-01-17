@@ -1,0 +1,1 @@
+### Testing: `npx ts-jest config:init`
