@@ -177,6 +177,35 @@ describe('PUT /api/products/:id', () => {
     })
 })
 
+describe('PATCH /api/products/:id', () => {
+    it('should check a valid ID', async () => {
+        const res = await request(server).patch(`/api/products/not-valid-url`)
+        expect(res.status).toBe(400)
+        expect(res.body).toHaveProperty('errors')
+        expect(res.body.errors).toHaveLength(1)
+        expect(res.body.errors[0].msg).toBe('ID no válido')
+    })
+    it('Should return a 404 response for a non-existent product', async () => {
+        const productId = 2000
+        const res = await request(server).patch(`/api/products/${productId}`)
+        expect(res.status).toBe(404)
+        expect(res.body).toHaveProperty('error')
+        expect(res.body.error).toBe('Producto no encontrado')
+        
+        expect(res.status).not.toBe(200)
+        expect(res.status).not.toHaveProperty('data')
+    })
+    it('should update the product availability', async () => {
+        const res = await request(server).patch(`/api/products/1`)
+        expect(res.status).toBe(200)
+        expect(res.body).toHaveProperty('data')
+        expect(res.body.data.availability).toBe(false)
+        
+        expect(res.status).not.toBe(400)
+        expect(res.status).not.toHaveProperty('errors')
+    })
+})
+
 describe('DELETE /api/products/:id', () => {
     it('should check a valid ID', async () => {
         const res = await request(server).delete(`/api/products/not-valid-url`)
