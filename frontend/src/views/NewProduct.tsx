@@ -1,4 +1,4 @@
-import { Link, Form, useActionData, ActionFunctionArgs } from "react-router-dom";
+import { Link, Form, useActionData, ActionFunctionArgs , redirect } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage";
 import { addProduct } from "../services/ProductServices";
 
@@ -15,14 +15,15 @@ export async function action({request} : ActionFunctionArgs) {
     return error
   }
   
-  addProduct(data)
-  return {}
+  await addProduct(data)
+
+  return redirect('/')
 }
 
 export default function NewProduct() {
 
   const error = useActionData() as string
-  console.log(error)
+
   return (
     <>
     <div className="flex justify-between">
