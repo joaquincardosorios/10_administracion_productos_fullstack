@@ -2,7 +2,6 @@ import { safeParse, parse, number, pipe, string, transform } from "valibot"
 import { DraftProductSchema, Product, ProductSchema, ProductsSchema } from "../types"
 import axios from "axios"
 import { toBoolean } from "../utils"
-import Products from "../views/Products"
 
 type ProductData = {
     [k: string] : FormDataEntryValue
