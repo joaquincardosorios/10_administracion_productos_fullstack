@@ -83,7 +83,6 @@ export async function deleteProduct( id : Product['id']) {
     await axios.delete(url)
   } catch (error) {
     console.log(error)
-    
   }
 }
 
@@ -93,7 +92,6 @@ export async function updateProductAvailability(id : Product['id']){
     await axios.patch(url)
   } catch (error) {
     console.log(error)
-    
   }
 }
 
